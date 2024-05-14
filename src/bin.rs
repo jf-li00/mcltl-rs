@@ -3,7 +3,7 @@ use mcltl_lib::ltl::automata;
 use mcltl_lib::ltl::expression::{put_in_nnf, LTLExpression};
 use mcltl_lib::verifier::{kripke, model_checker};
 
-use clap::Clap;
+use clap::Parser;
 
 use std::convert::TryFrom;
 use std::fs;
@@ -23,16 +23,16 @@ macro_rules! error {
     };
 }
 
-#[derive(Clap)]
+#[derive(Parser)]
 #[clap(version = "1.0tt")]
 struct Opts {
-    #[clap(short = "k", long = "program")]
+    #[arg(short = 'k', long = "program")]
     program_path: String,
-    #[clap(short = "p", long = "property")]
+    #[arg(short = 'p', long = "property")]
     property: String,
 }
 
-fn verify_property<'a>(contents: String, opts: Opts) {
+fn verify_property(contents: String, opts: Opts) {
     let kripke_program = kripke::KripkeStructure::try_from(contents);
 
     if let Err(e) = kripke_program {
