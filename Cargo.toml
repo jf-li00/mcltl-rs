@@ -2,7 +2,7 @@
 name = "ltl"
 version = "0.1.0"
 authors = ["Alessio Coltellacci <lightplay8@gmail.com>"]
-edition = "2018"
+edition = "2021"
 
 [lib]
 name = "mcltl_lib"
@@ -13,6 +13,6 @@ name = "mcltl"
 path = "src/bin.rs"
 
 [dependencies]
+clap = { version = "4.5.4", features = ["derive"] }
 dot = "0.1"
 plex = "0.2.5"
-clap = { git = "https://github.com/clap-rs/clap/" }
