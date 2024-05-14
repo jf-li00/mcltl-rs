@@ -19,7 +19,6 @@ pub fn render_to<W: Write>(buchi: &Buchi, output: &mut W) -> IOResult<()> {
     dot::render(buchi, output)
 }
 
-
 impl<'a> dot::Labeller<'a, Node, Edge<'a>> for Buchi {
     fn graph_id(&'a self) -> dot::Id<'a> {
         dot::Id::new("buchi").unwrap()
