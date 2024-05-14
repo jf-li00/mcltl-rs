@@ -5,4 +5,4 @@ pub mod buchi;
 pub mod ltl;
 pub mod verifier;
 
-mod utils;
+pub mod utils;
